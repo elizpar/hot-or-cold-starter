@@ -12,8 +12,8 @@ $(document).ready(function(){
 
 $('.new').on('click', function(event){
   location.reload();
-});
 
+//generate random number on page load
 var randomNum= Math.floor((Math.random() * 100) + 1);
 
 $('#guessButton').on('click', function(event) {
@@ -29,9 +29,6 @@ if (randomNum == userEntry) {
 }
 if (randomNum > userEntry + 75 && randomNum )
 
-
 });
-
-//There are changes I'm making to make an update in GitHub.
-
+});
 
