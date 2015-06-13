@@ -21,7 +21,7 @@ $('#guessButton').on('click', function(event) {
     event.preventDefault();
 
     var userEntry = $('#userGuess').val();
-    if (userEntry % 1 == 0 && userEntry < 100 && userEntry > 1){ 
+    if (userEntry % 1 == 0 && userEntry < 101 && userEntry > 0){ 
       $('#guessList').append('<li><span>' +userEntry+ '</span></li>');
       $('#userGuess').val("");
       counter++;
@@ -33,31 +33,44 @@ $('#guessButton').on('click', function(event) {
 
     alert('Enter a number between 1 and 100!');
          }   
-  });
+  
+  if (userEntry == randomNum) {
+    $('#feedback').html('Sweet.');
+    console.log('sweet');
+    location.reload();
+  }
 
-/* if (userEntry == randomNum) {
-  $('#feedback').html('Sweet.');
+  else if (userEntry > randomNum + 10 && userEntry < randomNum + 26) {
+    $('#feedback').html('Very hot!');
+    console.log('very hot');
   }
-  else if (userEntry - randomNum < randomNum + 10) {
-  $('#feedback').html('Very hot!');
-  }
-else if (userEntry - randomNum < 10) && randomNum + 10) {
+
+else if (userEntry > randomNum + 25 && userEntry < randomNum + 51) {
   $('#feedback').html('Mmm, close.');
-  }
-else if (userEntry - randomNum < randomNum + 10) {
-  $('#feedback').html('Cool.');
-  }
-else if (userEntry - randomNum < randomNum + 10) {
-  $('#feedback').html('Brrr');
-  }
-else if (userEntry - randomNum < randomNum + 10) {
-  $('#feedback').html('Ice cold!');
+  console.log('Mmm, close.');
   }
 
+else if (userEntry > randomNum + 50 && userEntry < randomNum + 76) {
+  $('#feedback').html('Cool.');
+  console.log('cool');
+  }
+
+else if (userEntry > randomNum + 75 && userEntry < randomNum + 91) {
+  $('#feedback').html('Brrr');
+  console.log('Brrr');
+  }
+
+else (userEntry > randomNum + 90 && userEntry < randomNum + 101) {
+  $('#feedback').html('Ice cold!');
+    console.log('ice cold');
+  }
+/*
   ); check for hot first... order I want to makes these test... what makes a
 what are the necessary tests to run? check match first
 check for something NaN or outside ... do it with javascript
 
 */
-
 });
+});
+
+
