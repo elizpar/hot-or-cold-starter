@@ -32,11 +32,11 @@ $('#guessButton').on('click', function(event) {
       alert('Enter a number between 1 and 100!');
     }   
   
-  var choiceDiff= userEntry - randomNum;
+  var choiceDiff= Math.abs(userEntry - randomNum);
 
-  if (userEntry === randomNum) {
-    $('#feedback').html('Sweet.');
-    console.log('sweet');
+  if (userEntry == randomNum) {
+    $('#feedback').html('You WON in '+ counter +' guesses!');
+    console.log('You won!');
   }
 
   else if (choiceDiff <= 10) {
@@ -45,19 +45,19 @@ $('#guessButton').on('click', function(event) {
     console.log(randomNum);
   }
 
-  else if (choiceDiff <= 25) {
+  else if (choiceDiff > 10 && choiceDiff <= 25) {
     $('#feedback').html('Mmm, close.');
     console.log('Mmm, close.');
     console.log(randomNum);
   }
 
-  else if (choiceDiff <=50) {
+  else if (choiceDiff > 25 && choiceDiff <= 50) {
     $('#feedback').html('Cool.');
     console.log('cool');
     console.log(randomNum);
   }
 
-  else if (choiceDiff <= 75) {
+  else if (choiceDiff > 50 && choiceDiff <= 75) {
     $('#feedback').html('Brrr');
     console.log('Brrr');
     console.log(randomNum);
