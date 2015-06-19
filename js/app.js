@@ -18,8 +18,8 @@ var randomNum= Math.floor((Math.random() * 100) + 1);
 console.log(randomNum);
 
 $('#guessButton').on('click', function(event) {
-    event.preventDefault();
-    var userEntry = $('#userGuess').val();
+  event.preventDefault();
+  var userEntry = $('#userGuess').val();
 
     if (userEntry % 1 == 0 && userEntry < 101 && userEntry > 0){ 
       $('#guessList').append('<li><span>' +userEntry+ '</span></li>');
@@ -32,34 +32,41 @@ $('#guessButton').on('click', function(event) {
       alert('Enter a number between 1 and 100!');
     }   
   
-  if (userEntry == randomNum) {
+  var choiceDiff= userEntry - randomNum;
+
+  if (userEntry === randomNum) {
     $('#feedback').html('Sweet.');
     console.log('sweet');
   }
 
-  else if (userEntry > randomNum + 10 && userEntry < randomNum + 26) {
+  else if (choiceDiff <= 10) {
     $('#feedback').html('Very hot!');
     console.log('very hot');
+    console.log(randomNum);
   }
 
-  else if (userEntry > randomNum + 25 && userEntry < randomNum + 51) {
+  else if (choiceDiff <= 25) {
     $('#feedback').html('Mmm, close.');
     console.log('Mmm, close.');
+    console.log(randomNum);
   }
 
-  else if (userEntry > randomNum + 50 && userEntry < randomNum + 76) {
+  else if (choiceDiff <=50) {
     $('#feedback').html('Cool.');
     console.log('cool');
+    console.log(randomNum);
   }
 
-  else if (userEntry > randomNum + 75 && userEntry < randomNum + 91) {
+  else if (choiceDiff <= 75) {
     $('#feedback').html('Brrr');
     console.log('Brrr');
+    console.log(randomNum);
   }
 
   else {
     $('#feedback').html('Ice cold!');
     console.log('ice cold');
+    console.log(randomNum);
   }
 /*
   ); check for hot first... order I want to makes these test... what makes a
